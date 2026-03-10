@@ -1,0 +1,56 @@
+[
+  {
+    "name": "Ruby Queen",
+    "description": "เค้กบลูเบอร์รี่",
+    "price": 450,
+    "image": "https://bowcake.com/wp-content/uploads/2026/01/A18-cake-pok.jpg"
+  },
+  {
+    "name": "เค้กเร้ดเวลเวท",
+    "description": "เจ้าเค้กกล่องของขวัญสุดคิวท์ ต้อนรับวาเลนไทน์ด้วยสีโทนขาว-ชมพูพาสเทล เรียบหรู แต่ยังคงน่ารักเป็นจำนวนมาก!",
+    "price": 120,
+    "image": "https://bowcake.com/wp-content/uploads/2026/01/R04-cake-pok.jpg"
+  },
+  {
+    "name": "เค้กนามะช็อกโกแลตนมสด",
+    "description": "ครัวซองต์กรอบนอกนุ่มใน หอมเนยแท้",
+    "price": 480,
+    "image": "https://bowcake.com/wp-content/uploads/2025/08/E06-cake-pok.jpg"
+  },
+  {
+    "name": "เค้กมิดไนท์ครันช์คุกกี้แอนด์ครีม",
+    "description": "เจ้าหมีสีน้ำตาลที่ตั้งใจจะใช้ชีวิตเท่ ๆ แบบไม่สนใคร แต่สุดท้ายแพ้ทางหัวใจตัวเอง เดินไปไหนหัวใจก็พองโต ",
+    "price": 500,
+    "image": "https://bowcake.com/wp-content/uploads/2025/12/V05-cake-pok.jpg"
+  },
+  {
+    "name": "เค้กมะพร้าวอ่อน",
+    "description": "เค้กมะพร้าวอ่อนเนื้อนุ่ม หอมกลิ่นมะพร้าวแท้ ๆ ราดด้วยน้ำมะพร้าวหวาน ๆ สดชื่น",
+    "price": 350,
+    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+  },
+  {
+    "name": "เค้กสตรอว์เบอร์รี",
+    "description": "เค้กสตรอว์เบอร์รีเนื้อนุ่ม หอมกลิ่นสตรอว์เบอร์รีแท้ ๆ ราดด้วยซอสสตรอว์เบอร์รีหวาน ๆ สดชื่น",
+    "price": 400,
+    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+  },
+  {
+    "name": "เค้กช็อกโกแลต",
+    "description": "เค้กช็อกโกแลตเนื้อนุ่ม หอมกลิ่นช็อกโกแลตแท้ ๆ ราดด้วยซอสช็อกโกแลตหวาน ๆ สดชื่น",
+    "price": 450,
+    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+  },
+  {
+    "name": "เค้กวนิลา",
+    "description": "เค้กวนิลาเนื้อนุ่ม หอมกลิ่นวนิลลาแท้ ๆ ราดด้วยซอสวนิลลาหวาน ๆ สดชื่น",
+    "price": 300,
+    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+  },
+  {
+    "name": "โดนัทช็อกโกแลต",
+    "description": "โดนัทช็อกโกแลตกรอบนอกนุ่มใน หอมกลิ่นช็อกโกแลตแท้ ๆ ราดด้วยซอสช็อกโกแลตหวาน ๆ สดชื่น",
+    "price": 50,
+    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+  }
+]

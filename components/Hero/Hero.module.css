@@ -1,0 +1,186 @@
+.section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  padding: 0 1rem;
+  overflow: hidden;
+}
+
+.gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(252, 231, 243, 0.6), transparent);
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+  }
+}
+
+.content {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    text-align: left;
+  }
+}
+
+.subtitle {
+  color: #ec4899;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #831843;
+  line-height: 1.1;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 4.5rem;
+  }
+}
+
+.titleAccent {
+  color: #ec4899;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: rgba(157, 23, 77, 0.7);
+  max-width: 28rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .description {
+    font-size: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .description {
+    margin: 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+@media (min-width: 1024px) {
+  .buttons {
+    justify-content: flex-start;
+  }
+}
+
+.btnPrimary {
+  background-color: #db2777;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(244, 114, 182, 0.5);
+  text-decoration: none;
+}
+
+.btnPrimary:hover {
+  background-color: #be185d;
+  box-shadow: 0 10px 15px -3px rgba(244, 114, 182, 0.6);
+  transform: scale(1.05);
+}
+
+.btnSecondary {
+  border: 2px solid #f472b6;
+  color: #db2777;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 0.3s;
+  text-decoration: none;
+  background: transparent;
+}
+
+.btnSecondary:hover {
+  background-color: #fdf2f8;
+  transform: scale(1.05);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.imageGlow {
+  position: relative;
+}
+
+.imageBlur {
+  position: absolute;
+  inset: -2rem;
+  background-color: rgba(251, 207, 232, 0.4);
+  border-radius: 9999px;
+  filter: blur(48px);
+}
+
+.heroImage {
+  position: relative;
+  width: 18rem;
+  height: 18rem;
+  object-fit: cover;
+  border-radius: 9999px;
+  box-shadow: 0 25px 50px -12px rgba(244, 114, 182, 0.4);
+  border: 4px solid rgba(255, 255, 255, 0.6);
+}
+
+@media (min-width: 768px) {
+  .heroImage {
+    width: 24rem;
+    height: 24rem;
+  }
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  animation: bounce 1s infinite;
+}
+
+.scrollIcon {
+  width: 1.5rem;
+  height: 1.5rem;
+  color: #f472b6;
+}
