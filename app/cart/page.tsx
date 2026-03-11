@@ -17,7 +17,7 @@ export default function CartPage() {
   return (
     <div className="min-h-screen py-12 px-4">
       <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-pink-900 mb-8">🛒 ตะกร้าสินค้า</h1>
+        <h1 className="text-3xl font-bold text-pink-900 mb-8">ตะกร้าสินค้า</h1>
 
         {items.length === 0 ? (
           <div className="bg-white rounded-3xl p-16 text-center shadow-md">
