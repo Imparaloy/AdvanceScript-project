@@ -9,7 +9,7 @@ import { Menu } from "lucide-react";
 const Page = () => {
   return (
     <div className="min-h-screen">
-      <Hero />s
+      <Hero />
       <Feature />
       <MenuSec />
       

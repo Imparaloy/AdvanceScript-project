@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-// ── Types ──────────────────────────────────────────────
+// ── Types
 
 export type CartItem = {
   name: string;
@@ -23,11 +23,11 @@ type CartContextType = {
   subtotal: number;
 };
 
-// ── Constants ──────────────────────────────────────────
+//Constants
 
 const STORAGE_KEY = "sweety-bakery-cart";
 
-// ── Context & Hook ─────────────────────────────────────
+//Context & Hook
 
 const CartContext = createContext<CartContextType | null>(null);
 
@@ -37,8 +37,7 @@ export const useCart = () => {
   return context;
 };
 
-// ── Helpers ────────────────────────────────────────────
-
+//Helpers
 function loadCartFromStorage(): CartItem[] {
   try {
     const stored = localStorage.getItem(STORAGE_KEY);
@@ -52,14 +51,22 @@ function saveCartToStorage(items: CartItem[]) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
 }
 
-// ── Provider ───────────────────────────────────────────
+//Provider
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>(loadCartFromStorage);
+  const [items, setItems] = useState<CartItem[]>([]);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    saveCartToStorage(items);
-  }, [items]);
+    setItems(loadCartFromStorage());
+    setIsLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    if (isLoaded) {
+      saveCartToStorage(items);
+    }
+  }, [items, isLoaded]);
 
   const addItem = (newItem: NewCartItem) => {
     setItems((prev) => {
