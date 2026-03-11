@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import "./cart.css";
 
 type CartItem = {
   id: number;
@@ -39,14 +40,11 @@ export default function CartPage() {
   const total = subtotal + shipping;
 
   return (
-    <div className="min-h-screen bg-zinc-50 font-sans">
+    <div className="cart-page">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-zinc-200 bg-white px-4 py-4 shadow-sm">
-        <div className="mx-auto flex max-w-3xl items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-sm text-zinc-500 transition-colors hover:text-zinc-900"
-          >
+      <header className="cart-header">
+        <div className="cart-header-inner">
+          <Link href="/" className="cart-back-link">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -62,65 +60,49 @@ export default function CartPage() {
             </svg>
             กลับหน้าหลัก
           </Link>
-          <h1 className="text-lg font-semibold text-zinc-900">
-            ตะกร้าสินค้า
-          </h1>
-          <span className="text-sm text-zinc-500">{items.length} รายการ</span>
+          <h1 className="cart-header-title">ตะกร้าสินค้า</h1>
+          <span className="cart-header-count">{items.length} รายการ</span>
         </div>
       </header>
 
-      <main className="mx-auto max-w-3xl px-4 py-8">
+      <main className="cart-main">
         {items.length === 0 ? (
           /* Empty state */
-          <div className="flex flex-col items-center justify-center gap-6 rounded-2xl bg-white py-24 text-center shadow-sm">
-            <span className="text-7xl">🛒</span>
+          <div className="cart-empty">
+            <span className="cart-empty-icon">🛒</span>
             <div>
-              <p className="text-xl font-semibold text-zinc-800">
-                ตะกร้าว่างเปล่า
-              </p>
-              <p className="mt-1 text-sm text-zinc-500">
-                เพิ่มสินค้าในตะกร้าเพื่อดำเนินการต่อ
-              </p>
+              <p className="cart-empty-title">ตะกร้าว่างเปล่า</p>
+              <p className="cart-empty-desc">เพิ่มสินค้าในตะกร้าเพื่อดำเนินการต่อ</p>
             </div>
-            <Link
-              href="/"
-              className="rounded-full bg-zinc-900 px-6 py-2.5 text-sm font-medium text-white transition-colors hover:bg-zinc-700"
-            >
+            <Link href="/" className="cart-primary-link">
               เลือกซื้อสินค้า
             </Link>
           </div>
         ) : (
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+          <div className="cart-grid">
             {/* Items list */}
-            <div className="flex flex-1 flex-col gap-3">
+            <div className="cart-items">
               {items.map((item) => (
-                <div
-                  key={item.id}
-                  className="flex items-center gap-4 rounded-2xl bg-white p-4 shadow-sm transition-shadow hover:shadow-md"
-                >
+                <div key={item.id} className="cart-item">
                   {/* Product image */}
-                  <div className="flex h-20 w-20 shrink-0 items-center justify-center rounded-xl bg-zinc-100 text-4xl">
+                  <div className="cart-item-image">
                     {item.image}
                   </div>
 
                   {/* Info */}
-                  <div className="flex flex-1 flex-col gap-1 min-w-0">
-                    <p className="truncate text-sm font-medium text-zinc-900">
-                      {item.name}
-                    </p>
-                    <p className="text-base font-semibold text-zinc-900">
+                  <div className="cart-item-info">
+                    <p className="cart-item-name">{item.name}</p>
+                    <p className="cart-item-total">
                       ฿{(item.price * item.qty).toLocaleString()}
                     </p>
-                    <p className="text-xs text-zinc-400">
-                      ฿{item.price.toLocaleString()} / ชิ้น
-                    </p>
+                    <p className="cart-item-price">฿{item.price.toLocaleString()} / ชิ้น</p>
                   </div>
 
                   {/* Quantity controls */}
-                  <div className="flex shrink-0 flex-col items-end gap-3">
+                  <div className="cart-item-actions">
                     <button
                       onClick={() => removeItem(item.id)}
-                      className="text-zinc-300 transition-colors hover:text-red-400"
+                      className="cart-remove-btn"
                       aria-label="ลบสินค้า"
                     >
                       <svg
@@ -137,20 +119,16 @@ export default function CartPage() {
                         <path d="M18 6 6 18M6 6l12 12" />
                       </svg>
                     </button>
-                    <div className="flex items-center gap-2 rounded-full border border-zinc-200 px-1 py-0.5">
+                    <div className="cart-qty">
                       <button
                         onClick={() => updateQty(item.id, -1)}
-                        className="flex h-7 w-7 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
                         aria-label="ลด"
                       >
                         −
                       </button>
-                      <span className="w-6 text-center text-sm font-semibold text-zinc-900">
-                        {item.qty}
-                      </span>
+                      <span>{item.qty}</span>
                       <button
                         onClick={() => updateQty(item.id, 1)}
-                        className="flex h-7 w-7 items-center justify-center rounded-full text-zinc-500 transition-colors hover:bg-zinc-100 hover:text-zinc-900"
                         aria-label="เพิ่ม"
                       >
                         +
@@ -162,45 +140,38 @@ export default function CartPage() {
             </div>
 
             {/* Order summary */}
-            <div className="w-full lg:w-72 shrink-0">
-              <div className="rounded-2xl bg-white p-6 shadow-sm">
-                <h2 className="mb-4 text-base font-semibold text-zinc-900">
-                  สรุปคำสั่งซื้อ
-                </h2>
-                <div className="flex flex-col gap-3 border-b border-zinc-100 pb-4">
-                  <div className="flex justify-between text-sm text-zinc-600">
+            <div className="cart-summary-wrap">
+              <div className="cart-summary">
+                <h2>สรุปคำสั่งซื้อ</h2>
+                <div className="cart-summary-lines">
+                  <div className="cart-summary-line">
                     <span>ราคาสินค้า</span>
                     <span>฿{subtotal.toLocaleString()}</span>
                   </div>
-                  <div className="flex justify-between text-sm text-zinc-600">
+                  <div className="cart-summary-line">
                     <span>ค่าจัดส่ง</span>
-                    <span className={shipping === 0 ? "text-green-600" : ""}>
+                    <span className={shipping === 0 ? "cart-free-shipping" : ""}>
                       {shipping === 0 ? "ฟรี" : `฿${shipping}`}
                     </span>
                   </div>
                   {shipping > 0 && (
-                    <p className="text-xs text-zinc-400">
-                      ซื้อครบ ฿1,000 รับฟรีค่าจัดส่ง
-                    </p>
+                    <p className="cart-summary-note">ซื้อครบ ฿1,000 รับฟรีค่าจัดส่ง</p>
                   )}
                 </div>
-                <div className="flex justify-between py-4 font-semibold text-zinc-900">
+                <div className="cart-summary-total">
                   <span>ยอดรวม</span>
-                  <span className="text-lg">฿{total.toLocaleString()}</span>
+                  <strong>฿{total.toLocaleString()}</strong>
                 </div>
                 <Link
                   href={{
                     pathname: "/confirm",
                     query: { total: total },
                   }}
-                  className="block w-full rounded-full bg-zinc-900 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-zinc-700"
+                  className="cart-submit-link"
                 >
                   ดำเนินการต่อ →
                 </Link>
-                <Link
-                  href="/"
-                  className="mt-3 block text-center text-xs text-zinc-400 transition-colors hover:text-zinc-600"
-                >
+                <Link href="/" className="cart-secondary-link">
                   เลือกซื้อสินค้าต่อ
                 </Link>
               </div>
