@@ -2,7 +2,7 @@
 import Hero from "@/components/Hero/Hero";
 import Feature from "@/components/Feature/Feature";
 import MenuSec from "@/components/Menu/Menu";
-import { Menu } from "lucide-react";
+
 
 
 
