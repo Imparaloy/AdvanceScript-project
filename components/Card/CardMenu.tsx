@@ -22,7 +22,7 @@ const CardMenu = (props: CardMenuProps) => {
       </div>
       <div className="px-4 pb-4">
         <Link href={`/menu/${encodeURIComponent(props.name)}`}>
-          <button className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">
+          <button className="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300 cursor-pointer">
             รายละเอียด
           </button>
         </Link>

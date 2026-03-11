@@ -1,12 +1,9 @@
 "use client";
-import CardMenu from "@/components/Card/CardMenu";
 import Hero from "@/components/Hero/Hero";
-import menuItem from "@/data/menu.json";
 import Feature from "@/components/Feature/Feature";
 import MenuSec from "@/components/Menu/Menu";
 import { Menu } from "lucide-react";
 
-const menuItems = menuItem;
 
 
 const Page = () => {

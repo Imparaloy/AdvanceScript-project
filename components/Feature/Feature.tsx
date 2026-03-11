@@ -1,16 +1,13 @@
 const features = [
   {
-    icon: "🧁",
     title: "โฮมเมดทุกชิ้น",
     description: "เราทำขนมทุกชิ้นด้วยมือ ใส่ใจทุกรายละเอียด",
   },
   {
-    icon: "🌿",
     title: "วัตถุดิบคัดสรร",
     description: "เลือกใช้วัตถุดิบคุณภาพดี ปลอดภัย ได้มาตรฐาน",
   },
   {
-    icon: "🚚",
     title: "จัดส่งทุกวัน",
     description: "สดใหม่ทุกวัน จัดส่งถึงหน้าบ้านคุณ",
   },
@@ -33,7 +30,6 @@ const Feature = () => {
                                 key={feature.title}
                                 className="bg-white rounded-2xl p-8 text-center shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
                             >
-                                <div className="text-5xl mb-4">{feature.icon}</div>
                                 <h3 className="text-xl font-bold text-pink-900 mb-2">
                                     {feature.title}
                                 </h3>

@@ -33,24 +33,18 @@
     "name": "เค้กสตรอว์เบอร์รี",
     "description": "เค้กสตรอว์เบอร์รีเนื้อนุ่ม หอมกลิ่นสตรอว์เบอร์รีแท้ ๆ ราดด้วยซอสสตรอว์เบอร์รีหวาน ๆ สดชื่น",
     "price": 400,
-    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+    "image": "https://bowcake.com/wp-content/uploads/2023/10/blog-3cream-09-1024x1024.jpeg"
   },
   {
     "name": "เค้กช็อกโกแลต",
     "description": "เค้กช็อกโกแลตเนื้อนุ่ม หอมกลิ่นช็อกโกแลตแท้ ๆ ราดด้วยซอสช็อกโกแลตหวาน ๆ สดชื่น",
-    "price": 450,
-    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+    "price": 250,
+    "image": "https://bowcake.com/wp-content/uploads/2023/10/blog-3cream-03.jpg"
   },
   {
     "name": "เค้กวนิลา",
     "description": "เค้กวนิลาเนื้อนุ่ม หอมกลิ่นวนิลลาแท้ ๆ ราดด้วยซอสวนิลลาหวาน ๆ สดชื่น",
     "price": 300,
-    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
-  },
-  {
-    "name": "โดนัทช็อกโกแลต",
-    "description": "โดนัทช็อกโกแลตกรอบนอกนุ่มใน หอมกลิ่นช็อกโกแลตแท้ ๆ ราดด้วยซอสช็อกโกแลตหวาน ๆ สดชื่น",
-    "price": 50,
-    "image": "https://assets.flowerstore.ph/public/tenantTH/app/assets/images/meta/300_wQdKkOKYEYNqVqRpCr1mEKcf8.webp"
+    "image": "https://s3.ap-southeast-1.amazonaws.com/lbx-snp-cms/images/menu/%E0%B9%80%E0%B8%84%E0%B9%89%E0%B8%81%E0%B8%9A%E0%B8%B1%E0%B8%97%E0%B9%80%E0%B8%97%E0%B8%AD%E0%B8%A3%E0%B9%8C%E0%B8%A7%E0%B8%B2%E0%B8%99%E0%B8%B4%E0%B8%A5%E0%B8%A5%E0%B8%B2%202%20%E0%B8%9B%E0%B8%AD%E0%B8%99%E0%B8%94%E0%B9%8C-UOIMEmp2E51768287660.webp"
   }
 ]

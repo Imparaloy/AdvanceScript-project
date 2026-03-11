@@ -1,6 +1,8 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, ReactNode } from "react";
+
+// ── Types ──────────────────────────────────────────────
 
 export type CartItem = {
   name: string;
@@ -9,15 +11,23 @@ export type CartItem = {
   qty: number;
 };
 
+type NewCartItem = Omit<CartItem, "qty">;
+
 type CartContextType = {
   items: CartItem[];
-  addItem: (item: Omit<CartItem, "qty">) => void;
+  addItem: (item: NewCartItem) => void;
   removeItem: (name: string) => void;
   updateQty: (name: string, delta: number) => void;
   clearCart: () => void;
   totalItems: number;
   subtotal: number;
 };
+
+// ── Constants ──────────────────────────────────────────
+
+const STORAGE_KEY = "sweety-bakery-cart";
+
+// ── Context & Hook ─────────────────────────────────────
 
 const CartContext = createContext<CartContextType | null>(null);
 
@@ -27,15 +37,36 @@ export const useCart = () => {
   return context;
 };
 
-export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [items, setItems] = useState<CartItem[]>([]);
+// ── Helpers ────────────────────────────────────────────
 
-  const addItem = (newItem: Omit<CartItem, "qty">) => {
+function loadCartFromStorage(): CartItem[] {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch {
+    return [];
+  }
+}
+
+function saveCartToStorage(items: CartItem[]) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+}
+
+// ── Provider ───────────────────────────────────────────
+
+export const CartProvider = ({ children }: { children: ReactNode }) => {
+  const [items, setItems] = useState<CartItem[]>(loadCartFromStorage);
+
+  useEffect(() => {
+    saveCartToStorage(items);
+  }, [items]);
+
+  const addItem = (newItem: NewCartItem) => {
     setItems((prev) => {
-      const existing = prev.find((i) => i.name === newItem.name);
-      if (existing) {
-        return prev.map((i) =>
-          i.name === newItem.name ? { ...i, qty: i.qty + 1 } : i
+      const exists = prev.some((item) => item.name === newItem.name);
+      if (exists) {
+        return prev.map((item) =>
+          item.name === newItem.name ? { ...item, qty: item.qty + 1 } : item
         );
       }
       return [...prev, { ...newItem, qty: 1 }];
@@ -43,21 +74,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeItem = (name: string) => {
-    setItems((prev) => prev.filter((i) => i.name !== name));
+    setItems((prev) => prev.filter((item) => item.name !== name));
   };
 
   const updateQty = (name: string, delta: number) => {
     setItems((prev) =>
       prev
-        .map((i) => (i.name === name ? { ...i, qty: i.qty + delta } : i))
-        .filter((i) => i.qty > 0)
+        .map((item) => (item.name === name ? { ...item, qty: item.qty + delta } : item))
+        .filter((item) => item.qty > 0)
     );
   };
 
   const clearCart = () => setItems([]);
 
-  const totalItems = items.reduce((sum, i) => sum + i.qty, 0);
-  const subtotal = items.reduce((sum, i) => sum + i.price * i.qty, 0);
+  const totalItems = items.reduce((sum, item) => sum + item.qty, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.qty, 0);
 
   return (
     <CartContext.Provider
